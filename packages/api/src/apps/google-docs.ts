@@ -1,3 +1,4 @@
+// Modified by NanoClaw (nanocoai/onecli-nanoclaw): adds the documents scope. See PATCHES.md.
 import type { AppDefinition } from "./types";
 import {
   buildGoogleAuthUrl,
@@ -18,6 +19,7 @@ export const googleDocs: AppDefinition = {
       "profile",
       "https://www.googleapis.com/auth/drive.readonly",
       "https://www.googleapis.com/auth/drive.file",
+      "https://www.googleapis.com/auth/documents",
     ],
     permissions: [
       {
@@ -30,6 +32,12 @@ export const googleDocs: AppDefinition = {
         scope: "https://www.googleapis.com/auth/drive.file",
         name: "Manage app documents",
         description: "Create and edit documents opened or created by OneCLI",
+        access: "write",
+      },
+      {
+        scope: "https://www.googleapis.com/auth/documents",
+        name: "All documents",
+        description: "See, edit, create, and delete all your Google Docs documents",
         access: "write",
       },
       {
